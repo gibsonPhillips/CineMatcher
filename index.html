@@ -1,0 +1,57 @@
+<!-- todo:
+looks good: skip function
+Looks good: hosting and friends auto compile results
+Looks good: linking for extra info 
+!! fixed length rating list
+!!! genre vetoing
+!!! results page separated
+!!! clean up for public posting
+!!! host on gh pages -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CineMatcher</title>
+  <link rel="stylesheet" href="styles/index.css">
+</head>
+<body>
+
+  <div style="text-align:center; margin-bottom: 20px;">
+    <h1 style="color:var(--need); margin:0;">CineMatcher</h1>
+    <p style="color:#aaa; margin:5px 0 0 0;">Idk, what do you wanna watch?</p>
+  </div>
+
+  <div class="container">
+    <!-- Left Column: Voting Panel -->
+    <div class="panel">
+      <div class="share-box" id="shareArea">
+        <strong>Room Code Link:</strong><br>
+        <span id="roomLink" style="color: #ffa502; font-size: 14px;">Generating link...</span>
+      </div>
+      <h2>Rate Current Movie</h2>
+      <div class="movie-card" id="movieCard">
+        <p>Loading collaborative session...</p>
+      </div>
+      <div class="tier-buttons">
+        <button class="btn btn-need" onclick="submitVote('need')">🔥 Need to Watch</button>
+        <button class="btn btn-could" onclick="submitVote('could')">👍 Could Watch</button>
+        <button class="btn btn-wont" onclick="submitVote('wont')">❌ Won't Watch</button>
+        <button class="btn btn-skip" onclick="skipVote('skip')">⏭️ Skip / Indifferent</button>
+      </div>
+    </div>
+
+    <!-- Right Column: Auto Leaderboard -->
+    <div class="panel">
+      <h2>🏆 Live Leaderboard</h2>
+      <div id="leaderboard">
+        <p style="color:#aaa; font-style:italic;">Waiting for user input...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- includes Firebase JavaScript SDK CDNs -->
+  <script type="module" src="scripts/index.js"></script>
+</body>
+</html>

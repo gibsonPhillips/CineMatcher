@@ -33,7 +33,7 @@ function initRoom() {
         window.history.replaceState({}, '', `?room=${roomId}`);
     }
 
-    document.getElementById('roomLink').innerText = window.location.href;
+    // document.getElementById('roomLink').innerText = window.location.href;
     listenToLiveScores();
 }
 
@@ -55,30 +55,30 @@ function seedShuffle(array, seed) {
 
 async function loadMovies() {
     try {
-        const response = await fetch('resources/movies.json');
+        const response = await fetch('../resources/movies.json');
         const data = await response.json();
 
         movies = seedShuffle(data, roomId);
-        displayNextMovie();
+        // displayNextMovie();
     } catch (err) {
         console.error(err);
         document.getElementById('movieCard').innerHTML = "<p style='color:red;'>Failed to load movies.json framework.</p>";
     }
 }
 
-window.displayNextMovie = function () {
-    if (currentIndex >= movies.length) {
-        document.getElementById('movieCard').innerHTML = "<h3>End of Catalog!</h3><p>You have rated everything.</p>";
-        return;
-    }
-    const movie = movies[currentIndex];
-    document.getElementById('movieCard').innerHTML = `
-    <a class="unstyled-link" href="https://www.movieofthenight.com/search?term=${movie.t}" target="_blank">
-        <div class="movie-title">${movie.t}</div>
-        <div class="movie-meta">${movie.y} • (${movie.g.toLocaleString()} votes)</div>
-        </a>
-      `;
-}
+// window.displayNextMovie = function () {
+//     if (currentIndex >= movies.length) {
+//         document.getElementById('movieCard').innerHTML = "<h3>End of Catalog!</h3><p>You have rated everything.</p>";
+//         return;
+//     }
+//     const movie = movies[currentIndex];
+//     document.getElementById('movieCard').innerHTML = `
+//     <a class="unstyled-link" href="https://www.movieofthenight.com/search?term=${movie.t}" target="_blank">
+//         <div class="movie-title">${movie.t}</div>
+//         <div class="movie-meta">${movie.y} • (${movie.g.toLocaleString()} votes)</div>
+//         </a>
+//       `;
+// }
 
 window.skipVote = function (tier) {
     if (currentIndex >= movies.length) return;

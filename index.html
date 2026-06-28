@@ -10,12 +10,14 @@ Looks good: linking for extra info
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CineMatcher</title>
   <link rel="stylesheet" href="styles/index.css">
 </head>
+
 <body>
 
   <div style="text-align:center; margin-bottom: 20px;">
@@ -26,10 +28,6 @@ Looks good: linking for extra info
   <div class="container">
     <!-- Left Column: Voting Panel -->
     <div class="panel">
-      <div class="share-box" id="shareArea">
-        <strong>Room Code Link:</strong><br>
-        <span id="roomLink" style="color: #ffa502; font-size: 14px;">Generating link...</span>
-      </div>
       <h2>Rate Current Movie</h2>
       <div class="movie-card" id="movieCard">
         <p>Loading collaborative session...</p>
@@ -43,9 +41,36 @@ Looks good: linking for extra info
     </div>
 
 
+    <div class="panel">
+      <div class="share-box" id="shareArea">
+        <strong>Room Code Link:</strong><br>
+        <span id="roomLink" style="color: #ffa502; font-size: 14px;">Generating link...</span>
+        <div id="controls">
+        <button class="btn">reset</button>
+        <button class="btn">dropdown-select or type how many movies in full list</button>
+        <button class="btn">make custom list</button>
+        <button class="btn">skip voting and go straight to results</button>
+        <button class="btn">your nickname</button>
+        <button class="btn">adult movies allowed?</button>
+        <slider>year range double ended</slider>
+        <slider>ratings range</slider>
+        <button class="btn">support projects like this</button>
+      </div>
+      </div>
+
+    </div>
+
+    <div class="panel" style="grid-column: span 2">
+      <div id="leaderboard">
+        <p style="color:#aaa; font-style:italic;">Waiting for user input...</p>
+      </div>
+      
+    </div>
   </div>
+
 
   <!-- includes Firebase JavaScript SDK CDNs -->
   <script type="module" src="scripts/index.js"></script>
 </body>
+
 </html>

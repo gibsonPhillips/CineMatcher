@@ -46,16 +46,32 @@ Looks good: linking for extra info
         <strong>Room Code Link:</strong><br>
         <span id="roomLink" style="color: #ffa502; font-size: 14px;">Generating link...</span>
         <div id="controls">
-        <button class="btn">reset</button>
-        <button class="btn">dropdown-select or type how many movies in full list</button>
-        <button class="btn">make custom list</button>
-        <button class="btn">skip voting and go straight to results</button>
-        <button class="btn">your nickname</button>
-        <button class="btn">adult movies allowed?</button>
-        <slider>year range double ended</slider>
-        <slider>ratings range</slider>
-        <button class="btn">support projects like this</button>
-      </div>
+          <button class="btn btn-reset">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+              <path
+                d="M480-160q-134 0-227-93t-93-227q0-134 93-227t227-93q69 0 132 28.5T720-690v-110h80v280H520v-80h168q-32-56-87.5-88T480-720q-100 0-170 70t-70 170q0 100 70 170t170 70q77 0 139-44t87-116h84q-28 106-114 173t-196 67Z" />
+            </svg>
+          </button>
+          <div class="number-combobox">
+            <label for="quantity-choice">Select or type a quantity (Steps of 5):</label>
+            <input type="number" id="quantity-choice" name="quantity" list="quantity-list" min="0" max="100" step="5"
+              placeholder="0" />
+
+            <datalist id="quantity-list">
+              <option value="5"></option>
+              <option value="10"></option>
+              <option value="25"></option>
+              <option value="50"></option>
+              <option value="100"></option>
+            </datalist>
+          </div> <button class="btn btn-custom">make custom list</button>
+          <button class="btn btn-full-skip">skip voting and go straight to results</button>
+          <button class="btn btn-nick">your nickname</button>
+          <button class="btn btn-adult">adult movies allowed?</button>
+          <slider>year range double ended</slider>
+          <slider>ratings range</slider>
+          <button class="btn">support projects like this</button>
+        </div>
       </div>
 
     </div>
@@ -64,7 +80,7 @@ Looks good: linking for extra info
       <div id="leaderboard">
         <p style="color:#aaa; font-style:italic;">Waiting for user input...</p>
       </div>
-      
+
     </div>
   </div>
 

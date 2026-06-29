@@ -1,0 +1,56 @@
+
+
+.btn-list-length {
+
+}
+
+.btn-custom {
+
+}
+
+.btn-full-skip {
+
+}
+
+.btn-nick {
+
+}
+
+.btn-adult {
+
+}
+
+
+
+/* -- dropdown -- */
+
+/* Container layout */
+.number-combobox {
+  font-family: system-ui, sans-serif;
+  margin: 20px;
+  max-width: 280px;
+}
+
+/* Label layout */
+.number-combobox label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #222;
+}
+
+/* Number input styling */
+.number-combobox input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #a0a0a0;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+/* Visual focus ring */
+.number-combobox input:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: 1px;
+}

@@ -29,7 +29,6 @@ Looks good: linking for extra info
   <div class="container">
     <!-- Left Column: Voting Panel -->
     <div class="panel">
-      <h2>Rate Current Movie</h2>
       <div class="movie-card" id="movieCard">
         <p>Loading collaborative session...</p>
       </div>
@@ -42,16 +41,19 @@ Looks good: linking for extra info
     </div>
 
 
-    <div class="share-box" id="shareArea">
+
+    <div class="panel" id="controls">
+      <!-- right collumn controls -->
       <strong>Room Code Link:</strong><br>
       <span id="roomLink" style="color: #ffa502; font-size: 14px;">Generating link...</span>
 
-      <div class="panel" id="controls">
+      <div class="share-box" id="shareArea">
         <form class="main-parameters">
           <!-- !!! font, border radius, and populating shadow text with current id (probs in js) -->
-          <input type="text" id="nickname" name="nickname" value="nickname"><br><br>
+          <input type="text" id="nickname" name="nickname" value="nickname">
 
           <div class="number-combobox">
+            <label for="quantity-choice">List Length:</label>
             <input type="number" id="quantity-choice" name="quantity" list="quantity-list" min="0" max="100" step="5"
               placeholder="0" />
 
@@ -64,29 +66,23 @@ Looks good: linking for extra info
             </datalist>
           </div>
 
-          <label for="quantity-choice">List Length:</label>
           <div class="hbox" id="containsAdult-inputs">
             <label for="containAdult">Include Adult Rated Movies?</label>
-            <input type="checkbox" id="containAdult" name="containAdult" value="False"><br><br>
+            <input type="checkbox" id="containAdult" name="containAdult" value="False">
           </div>
 
-
-
-
           <div id="ranges">
-            Year: 
-            <input type="text" id="rng-year" name="year-range" value="1970">
+            Year:
+            <input type="text" id="rng-year-min" name="year-range" value="1970">
             -
-            <input type="text" id="rng-year" name="year-range" value="2026">
+            <input type="text" id="rng-year-max" name="year-range" value="2026">
 
-            <br>
-            Rating: 
-            <input type="text" id="rng-ratings-min" name="ratings-range-min" value="0">
+            Rating:
+            <input type="text" id="rng-rating-min" name="rating-range-min" value="0">
             -
-            <input type="text" id="rng-ratings-max" name="ratings-range-max" value="10">
+            <input type="text" id="rng-rating-max" name="rating-range-max" value="10">
 
           </div><br>
-
 
           <button type="submit" title="refresh with new rules" class="btn btn-refresh">
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
@@ -95,20 +91,11 @@ Looks good: linking for extra info
             </svg>
           </button>
 
-
-
         </form>
-
-
-
       </div>
       <div id="diverging buttons">
 
-        <button class="btn btn-full-skip" title="Skip voting and see results">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
-            <path d="m280-240-56-56 184-184-184-184 56-56 240 240-240 240Zm360 0v-480h80v480h-80Z" />
-          </svg>
-        </button>
+
         <button class="btn btn-custom" title="Make your own custom list">
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
             <path
@@ -119,6 +106,11 @@ Looks good: linking for extra info
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
             <path
               d="M240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h560v80h-80v80q0 17-11.5 28.5T680-680H360q-17 0-28.5-11.5T320-720v-80h-80v640h162q-38-27-60-68.5T320-320v-200h400v200q0 50-22 91.5T638-160h162v80H240Zm280-120q50 0 85-35t35-85v-120H400v120q0 50 35 85t85 35Zm28.5-371.5Q560-583 560-600t-11.5-28.5Q537-640 520-640t-28.5 11.5Q480-617 480-600t11.5 28.5Q503-560 520-560t28.5-11.5ZM520-440Z" />
+          </svg>
+        </button>
+        <button class="btn btn-full-skip" title="Skip voting and see results">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+            <path d="m280-240-56-56 184-184-184-184 56-56 240 240-240 240Zm360 0v-480h80v480h-80Z" />
           </svg>
         </button>
       </div>

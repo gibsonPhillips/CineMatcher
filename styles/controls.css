@@ -24,10 +24,13 @@
     background-color: black;
 }
 
-#controls {
-    margin: 20px;
+[id^="rng-year-"], [id^=" rng-year-"]{
+    width: 2rem;
 }
 
+[id^="rng-rating-"], [id^=" rng-rating-"]{
+    width: 1rem;
+}
 
 /* -------------------- dropdown -------------------- */
 
@@ -40,15 +43,15 @@
 
 /* Label layout */
 .number-combobox label {
-    display: block;
+    /* display: block;  */
     margin-bottom: 6px;
     font-weight: 600;
-    color: #222;
+    /* color: #222; */
 }
 
 /* Number input styling */
 .number-combobox input {
-    width: 100%;
+    /* width: 100%; */
     padding: 10px;
     font-size: 16px;
     border: 1px solid #a0a0a0;

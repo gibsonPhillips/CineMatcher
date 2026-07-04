@@ -1,56 +1,64 @@
 
-
-.btn-list-length {
-
+.nickname {
+    /* I'm not empty */
 }
 
-.btn-custom {
+#containAdult {
+    background-color: black;
+}
 
+.btn-refresh {
+    background-color: black;
 }
 
 .btn-full-skip {
+    background-color: black;
+}
+
+.btn-custom {
+    background-color: black;
 
 }
 
-.btn-nick {
-
+.btn-support {
+    background-color: black;
 }
 
-.btn-adult {
-
+#controls {
+    margin: 20px;
 }
 
 
-
-/* -- dropdown -- */
+/* -------------------- dropdown -------------------- */
 
 /* Container layout */
 .number-combobox {
-  font-family: system-ui, sans-serif;
-  margin: 20px;
-  max-width: 280px;
+    font-family: system-ui, sans-serif;
+    margin: 20px;
+    max-width: 280px;
 }
 
 /* Label layout */
 .number-combobox label {
-  display: block;
-  margin-bottom: 6px;
-  font-weight: 600;
-  color: #222;
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #222;
 }
 
 /* Number input styling */
 .number-combobox input {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #a0a0a0;
-  border-radius: 6px;
-  box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #a0a0a0;
+    border-radius: 6px;
+    box-sizing: border-box;
 }
 
 /* Visual focus ring */
 .number-combobox input:focus {
-  outline: 2px solid #0066cc;
-  outline-offset: 1px;
+    outline: 2px solid #0066cc;
+    outline-offset: 1px;
 }
+

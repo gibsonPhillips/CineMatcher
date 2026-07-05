@@ -1,10 +1,13 @@
 
 .nickname {
-    /* I'm not empty */
+    background-color: black;
+/* !! change me */
 }
 
 #containAdult {
     background-color: black;
+/* !! change me */
+
 }
 
 .btn-refresh {

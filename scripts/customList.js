@@ -24,7 +24,7 @@ form.addEventListener('submit', async (e) => {
 
 
 // blit list
-updateList(item) {
+function updateList(item) {
     const div = document.createElement('div');
     div.className = 'custom-item';
     div.textContent = movie.title;

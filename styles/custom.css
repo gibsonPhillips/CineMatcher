@@ -13,3 +13,9 @@
 .btn-submit-item {
     background-color: green;
 }
+
+.custom-list-buttons {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap:16px;
+}

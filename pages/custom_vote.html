@@ -1,0 +1,136 @@
+<!-- todo:
+looks good: skip function
+Looks good: hosting and friends auto compile results
+Looks good: linking for extra info 
+!! style controls and whatnot
+!! anonymous flag
+!!! fixed length rating list
+!!! genre vetoing
+!!! results page separated
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decider</title>
+  <link rel="stylesheet" href="../styles/index.css">
+  <link rel="stylesheet" href="../styles/controls.css">
+</head>
+
+<body>
+
+  <div style="text-align:center; margin-bottom: 20px;">
+    <h1 style="color:var(--need); margin:0;">Decider</h1>
+    <p style="color:#aaa; margin:5px 0 0 0;">Idk, what do you wanna do?</p>
+  </div>
+
+  <div class="container">
+    <!-- Left Column: Voting Panel -->
+    <div class="panel">
+      <div class="movie-card" id="movieCard">
+        <p>Loading collaborative session...</p>
+      </div>
+      <div class="tier-buttons">
+        <button class="btn btn-need" onclick="submitVote('need')">🔥 Absolutely</button>
+        <button class="btn btn-could" onclick="submitVote('could')">👍 Okay!</button>
+        <button class="btn btn-wont" onclick="submitVote('wont')">❌ Absolutely NOT</button>
+        <button class="btn btn-skip" onclick="skipVote('skip')">⏭️ Skip / Indifferent</button>
+      </div>
+    </div>
+
+
+
+    <div class="panel" id="controls">
+
+      <div id="diverging buttons">
+
+
+        <button class="btn btn-custom" title="Make your own custom list" onclick="window.location.href='pages/make_custom.html'">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+            <path
+              d="M680-40v-120H560v-80h120v-120h80v120h120v80H760v120h-80ZM200-200v-560 560Zm0 80q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v353q-18-11-38-18t-42-11v-324H200v560h280q0 21 3 41t10 39H200Zm148.5-171.5Q360-303 360-320t-11.5-28.5Q337-360 320-360t-28.5 11.5Q280-337 280-320t11.5 28.5Q303-280 320-280t28.5-11.5Zm0-160Q360-463 360-480t-11.5-28.5Q337-520 320-520t-28.5 11.5Q280-497 280-480t11.5 28.5Q303-440 320-440t28.5-11.5Zm0-160Q360-623 360-640t-11.5-28.5Q337-680 320-680t-28.5 11.5Q280-657 280-640t11.5 28.5Q303-600 320-600t28.5-11.5ZM440-440h240v-80H440v80Zm0-160h240v-80H440v80Zm0 320h54q8-23 20-43t28-37H440v80Z" />
+          </svg>
+        </button>
+        <button class="btn btn-support" title="Support projects like these">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+            <path
+              d="M240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h560v80h-80v80q0 17-11.5 28.5T680-680H360q-17 0-28.5-11.5T320-720v-80h-80v640h162q-38-27-60-68.5T320-320v-200h400v200q0 50-22 91.5T638-160h162v80H240Zm280-120q50 0 85-35t35-85v-120H400v120q0 50 35 85t85 35Zm28.5-371.5Q560-583 560-600t-11.5-28.5Q537-640 520-640t-28.5 11.5Q480-617 480-600t11.5 28.5Q503-560 520-560t28.5-11.5ZM520-440Z" />
+          </svg>
+        </button>
+        <button class="btn btn-full-skip" title="Skip voting and see results">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+            <path d="m280-240-56-56 184-184-184-184 56-56 240 240-240 240Zm360 0v-480h80v480h-80Z" />
+          </svg>
+        </button>
+      </div>
+      <!-- right collumn controls -->
+      <strong>Room Code Link:</strong><br>
+      <span id="roomLink" style="color: #ffa502; font-size: 14px;">Generating link...</span>
+
+      <div class="share-box" id="shareArea">
+        <form class="main-parameters">
+          <!-- !!! font, border radius, and populating shadow text with current id (probs in js) -->
+          <input type="text" id="nickname" name="nickname" value="nickname">
+
+          <div class="number-combobox">
+            <label for="quantity-choice">List Length:</label>
+            <input type="number" id="quantity-choice" name="quantity" list="quantity-list" min="0" max="100" step="5"
+              placeholder="0" />
+
+            <datalist id="quantity-list">
+              <option value="5"></option>
+              <option value="10"></option>
+              <option value="25"></option>
+              <option value="50"></option>
+              <option value="100"></option>
+            </datalist>
+          </div>
+
+          <div class="hbox" id="containsAdult-inputs">
+            <label for="containAdult">Include Adult Rated Movies?</label>
+            <input type="checkbox" id="containAdult" name="containAdult" value="False">
+          </div>
+
+          <div id="ranges">
+            Year:
+            <input type="text" id="rng-year-min" name="year-range" value="1970">
+            -
+            <input type="text" id="rng-year-max" name="year-range" value="2026">
+
+            Rating:
+            <input type="text" id="rng-rating-min" name="rating-range-min" value="0">
+            -
+            <input type="text" id="rng-rating-max" name="rating-range-max" value="10">
+
+          </div><br>
+
+          <button type="submit" title="refresh with new rules" class="btn btn-refresh">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+              <path
+                d="M480-160q-134 0-227-93t-93-227q0-134 93-227t227-93q69 0 132 28.5T720-690v-110h80v280H520v-80h168q-32-56-87.5-88T480-720q-100 0-170 70t-70 170q0 100 70 170t170 70q77 0 139-44t87-116h84q-28 106-114 173t-196 67Z" />
+            </svg>
+          </button>
+
+        </form>
+      </div>
+
+
+    </div>
+
+    <div class="panel" style="grid-column: span 2">
+      <div id="leaderboard">
+        <p style="color:#aaa; font-style:italic;">Waiting for user input...</p>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- includes Firebase JavaScript SDK CDNs -->
+  <script type="module" src="../scripts/custom_vote.js"></script>
+</body>
+
+</html>
